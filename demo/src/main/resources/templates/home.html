@@ -42,8 +42,9 @@ h2 {
 <div class="container">
     <div class="welcome">
        <h1>Welcome<h2 th:text="${userDetail.fullName}"> <span id="user-name">John Doe</span>!</h2></h1>
+        <span sec:authorize="isAuthenticated" style="justify-content: centre"> <a th:href="@{/logout}"> Logout </a></span>
     </div>
-    <span sec:authorize="isAuthenticated"> <a th:href="@{/logout}"> Logout </a></span>
+
 </div>
 
 </body>

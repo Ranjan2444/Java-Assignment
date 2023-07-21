@@ -64,7 +64,7 @@ button:hover {
     background-color: #c299d0;
 }
 .error-message, .logout-message {
-    display: none;
+    display: block;
     background-color: #d2f0d2;
     color: #047e04;
     border: 1px solid #047e04;
@@ -77,14 +77,14 @@ button:hover {
 </head>
 <body>
 <div class="container">
-    <div th:if="${param.error}">
-        <div class="error-message">Invalid Username or Password</div>
-    </div>
-    <div th:if="${param.logout}">
-        <div class="logout-message">Logout Successful! </div>
-    </div>
-    <form class="form" method="post" role ="form" th:action="@{/login}" th:object="${user}">
 
+    <form class="form" method="post" role ="form" th:action="@{/login}" th:object="${user}">
+        <div th:if="${param.error}">
+            <div class="error-message"><p>Invalid Username or Password</p></div>
+        </div>
+        <div th:if="${param.logout}">
+            <div class="logout-message">Logout Successful! </div>
+        </div>
         <h2>Login</h2>
         <div class="form-group">
             <label for="username">Username</label>
