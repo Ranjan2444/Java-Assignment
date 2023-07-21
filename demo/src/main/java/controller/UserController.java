@@ -2,17 +2,20 @@ package controller;
 
 
 import dto.UserDto;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import service.UserService;
 
 @Controller
 public class UserController {
     private UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
     @GetMapping("/home")
     public String home(){
         return "home";
@@ -27,10 +30,10 @@ public class UserController {
         model.addAttribute("user", userDto);
         return "register";
     }
-    @PutMapping("/register")
+    @PostMapping("/register")
     public String registerSave(@ModelAttribute("user") UserDto userDto){
         userService.save(userDto);
-        return "register";
+        return "redirect:/register?success=true";
     }
 
 }

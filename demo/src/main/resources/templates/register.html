@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-</head>
-<style>
+  <style>
   body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -69,10 +68,12 @@ button {
 
 
 </style>
+</head>
+
 <body>
 <div class="container">
   <h2>Registration Form</h2>
-  <div th:if ="${param.success}">
+  <div th:if ="${param.success == 'true'}">
   <div class="success-message" style="display:none;">Registration Successful!</div>
   </div>
   <form  method = "post" role="form" th:action="@{/register}" th:object="${user}">

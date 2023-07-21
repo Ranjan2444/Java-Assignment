@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Register</title>
-</head>
-<style>
+    <style>
   body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -69,10 +68,12 @@ button {
 
 
 </style>
+</head>
+
 <body>
 <div class="container">
     <h2>Log In</h2>
-    <div th:if ="${param.error}">
+    <div th:if ="${param.error == 'true'}">
         <div class="error-message" style="display:none;">Invalid username or password</div>
     </div>
     <div th:if ="${param.Logout}">
