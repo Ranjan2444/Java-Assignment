@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f2f2f2;
+    margin: 0;
+}
+
+.container {
+    width: 400px;
+}
+
+.form {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #5e057e;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    color: #5e057e;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #5e057e;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #c299d0;
+}
+.error-message, .logout-message {
+    display: none;
+    background-color: #d2f0d2;
+    color: #047e04;
+    border: 1px solid #047e04;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div th:if="${param.error}">
+        <div class="error-message">Invalid Username or Password</div>
+    </div>
+    <div th:if="${param.logout}">
+        <div class="logout-message">Logout Successful! </div>
+    </div>
+    <form class="form" method="post" role ="form" th:action="@{/login}" th:object="${user}">
+
+        <h2>Login</h2>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input th:field="*{username}" type="text" id="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input th:field="*{password}" type="password" id="password" required>
+        </div>
+        <div class="form-group">
+            <button type="submit">Login</button>
+        </div>
+    </form>
+    <span>Register here : <a th:href="@{/register}"> Register</a></span>
+</div>
+</body>
+</html>
