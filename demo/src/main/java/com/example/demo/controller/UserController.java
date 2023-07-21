@@ -1,8 +1,7 @@
-package com.example.demo.controller;
+package controller;
 
 
-import com.example.demo.dto.UserDto;
-import com.example.demo.service.UserService;
+import dto.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -11,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import service.UserService;
 
 import java.security.Principal;
 

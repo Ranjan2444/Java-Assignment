@@ -1,11 +1,11 @@
-package com.example.demo.service;
+package service;
 
-import com.example.demo.entity.User;
-import com.example.demo.repository.UserRepository;
-import com.example.demo.dto.UserDto;
+import dto.UserDto;
+import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import repository.UserRepository;
 
 @Service
 public class UserServiceImpl implements UserService {
